@@ -1,42 +1,16 @@
-# flutter-firebase-complete-app :flight_departure:
-## read between the lines 	:crystal_ball:
-> To try to understand someone's real feelings or intentions from what they say or write. To find meanings that are intended but that are not directly expressed in something said or written. 
-[_Cambridge Dictionary_](https://dictionary.cambridge.org/dictionary/english/read-between-the-lines).
+# flutter_application_1
 
-<details><summary>CLICK TO READ</summary>
-<p>
+A new Flutter project.
 
-#### Creating my Portfolio! My work it's my image!
+## Getting Started
 
-```ruby
-   about_app: "Flutter-Firebase App for iOS and Android using Firebase Firestore, Firebase Storage, Google Sign In, with 2 themes from scratch."
-```
+This project is a starting point for a Flutter application.
 
-</p>
-</details>
+A few resources to get you started if this is your first Flutter project:
 
-![Dart](https://cdn-icons-png.flaticon.com/512/8663/8663545.png) 
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-
-
-## What the Project covers
-
-| Command | Description |
-| --- | --- |
-| `firebase ` | app creation with **Firebase CLI** |
-| `firebaseUpload` |  Firebase upload data programmatically |
-| `firebase login ` |  Upload user data to firebase |
-| `OAuth 2.0` |  Access Google APIs |
-
-
-
-
-
-
-
-
-
-<!--
-
-![iOS](https://www.svgrepo.com/show/395664/app-store.svg) ![iOS](https://www.logo.wine/a/logo/Android_(operating_system)/Android_(operating_system)-Logo.wine.svg) 
--->
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
