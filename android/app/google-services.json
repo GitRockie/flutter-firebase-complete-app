@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "416503622241",
+    "project_id": "classmoor-app",
+    "storage_bucket": "classmoor-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416503622241:android:4765355cabea0f86c15820",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416503622241-nve0jot1v15f56vuopjblkr53viih7b1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdyVtQh2OogLTeUvc_8DROAtcvruFxkwI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416503622241-nve0jot1v15f56vuopjblkr53viih7b1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
