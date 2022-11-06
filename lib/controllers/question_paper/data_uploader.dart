@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/models/question_paper_model.dart';
 import 'package:get/get.dart';
 
 class DataUploader extends GetxController {
@@ -25,10 +26,16 @@ class DataUploader extends GetxController {
         .where((path) =>
             path.startsWith('assets/DB/papers') && path.contains('.json'))
         .toList();
+
+    List<QuestionPaperModel> questionPapers = [];
     //read the content in a loop
     for (var paper in papersInAssets) {
       String stringPaperContent = await rootBundle.loadString(paper);
-      print(stringPaperContent);
+      questionPapers
+          .add(QuestionPaperModel.fromJson(json.decode(stringPaperContent)));
     }
+    //print('Items number ${questionPapers.length}');
+    //print('Items number ${questionPapers[0].id}');
+    //print('Items number ${questionPapers[2].description}');
   }
 }
