@@ -47,6 +47,7 @@ class DataUploader extends GetxController {
     var batch = fireStore.batch();
 
     for (var paper in questionPapers) {
+      //create collection in relative document
       batch.set(questionPaperRF.doc(paper.id), {
         'title': paper.title,
         'img_url': paper.imageUrl,
@@ -54,6 +55,15 @@ class DataUploader extends GetxController {
         'time_seconds': paper.timeSeconds,
         'questions_count': paper.questions == null ? 0 : paper.questions!.length
       });
+      //creating questions collection for each of the documents passing questionId
+      for (var questions in paper.questions!) {
+        final questionPath =
+            questionRF(paperId: paper.id, questionId: questions.id);
+        batch.set(questionPath, {
+          'question': questions.question,
+          'correct_answer': questions.correctAnswer,
+        });
+      }
     }
 
     //submit the operation
