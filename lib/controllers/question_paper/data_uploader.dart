@@ -52,8 +52,7 @@ class DataUploader extends GetxController {
         'img_url': paper.imageUrl,
         'Description': paper.description,
         'time_seconds': paper.timeSeconds,
-        'questions_count':
-            paper.questions == null ? 0 : paper.questions!.length,
+        'questions_count': paper.questions == null ? 0 : paper.questions!.length
       });
     }
 
