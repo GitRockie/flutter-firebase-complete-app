@@ -32,6 +32,10 @@ migrate_working_dir/
 .pub/
 /build/
 
+# Google Services (ex. APIs and Firebase)
+google-services.json
+GoogleService-Info.plist
+
 # Symbolication related
 app.*.symbols
 
