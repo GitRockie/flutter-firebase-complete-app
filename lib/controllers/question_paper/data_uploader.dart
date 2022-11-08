@@ -63,6 +63,15 @@ class DataUploader extends GetxController {
           'question': questions.question,
           'correct_answer': questions.correctAnswer,
         });
+
+      //create last subcollection answers
+      for (var answer in questions.answers) {
+          batch.set(questionPath.collection('answers').doc(answer.identifier), {
+            'identifier' : answer.identifier,
+            'Answer': answer.answer
+
+          });
+        }
       }
     }
 
