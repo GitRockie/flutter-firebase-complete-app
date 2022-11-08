@@ -9,7 +9,10 @@ class DataUploaderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: Text('uploading')),
+      
+      body: Center(
+        //the place we want to change value based on obs to uploading completed
+        child: Text('uploading')),
     );
   }
 }

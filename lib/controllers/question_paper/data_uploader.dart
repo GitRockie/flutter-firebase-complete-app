@@ -7,6 +7,8 @@ import 'package:flutter_application_1/firebase_ref/references.dart';
 import 'package:flutter_application_1/models/question_paper_model.dart';
 import 'package:get/get.dart';
 
+import '../../firebase_ref/loading_status.dart';
+
 class DataUploader extends GetxController {
   @override
   void onReady() {
@@ -14,8 +16,12 @@ class DataUploader extends GetxController {
     uploadData();
     super.onReady();
   }
+  //get the ENUM value from LoadingStatus making variable Observable
+  final loadingStatus = LoadingStatus.loading.obs;
+
 
   Future<void> uploadData() async {
+    loadingStatus.value = LoadingStatus.loading; //the first value is 0
     //Place to get Firestore instance to send the data to the backend
     final fireStore = FirebaseFirestore.instance;
 
@@ -77,5 +83,6 @@ class DataUploader extends GetxController {
 
     //submit the operation
     await batch.commit();
+    loadingStatus.value = LoadingStatus.completed;
   }
 }
