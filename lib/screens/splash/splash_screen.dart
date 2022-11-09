@@ -7,8 +7,13 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Image.asset('assets/images/app_splash_logo.png') ,
+        alignment: Alignment.center,
+        child: Image.asset(
+          'assets/images/class_moor.png',
+          width: 200,
+          height: 200,
         ),
+      ),
     );
   }
 }
