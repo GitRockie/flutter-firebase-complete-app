@@ -20,20 +20,20 @@ class AppIntroductionScreen extends StatelessWidget {
               const Icon(
                 Icons.star,
                 size: 65,
-                color: Colors.amber,
               ),
               const SizedBox(
                 height: 40,
               ),
               const Text(
-                  'Play and study with awesome Classmoor App right now!\nLearn whatever you want, find your teachers, or create your own classes.\nShare yor knowledge and results with friends!'),
+                  style: TextStyle(fontSize: 18, color: onSurfaceTextColor),
+                  'Play and study with awesome Classmoor App right now! Learn whatever you want, find your teachers, or create your own classes. \nShare your knowledge and results with friends!'),
               const SizedBox(
                 height: 40,
               ),
               AppCircleButton(
                 onTap: () => null,
                 child: const Icon(
-                  Icons.arrow_forward_ios,
+                  Icons.arrow_forward,
                   size: 35,
                 ),
               )

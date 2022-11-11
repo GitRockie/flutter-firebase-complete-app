@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 
 class AppCircleButton extends StatelessWidget {
   const AppCircleButton(
-      {Key? key, required this.child, this.color, this.width = 60, this.onTap});
+      {super.key,
+      required this.child,
+      this.color,
+      this.width = 60,
+      this.onTap});
 
   final Widget child;
   final Color? color;
