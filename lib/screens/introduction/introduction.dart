@@ -7,22 +7,33 @@ class AppIntroductionScren extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: Container(
         alignment: Alignment.center,
         child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: Get.width * 0.2),
+          padding: EdgeInsets.symmetric(horizontal: Get.width * 0.2),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children:  [
-              const Icon(Icons.star, size: 65, color: Colors.amber,),
-              const SizedBox(height: 40,),
-              const Text('Play & study with Classmoor App right now! Learn whatever you want, find your teachers, or create your own classes. Share yor knowledge and results with friends!'),
-              const SizedBox(height: 40,),
+            children: [
+              const Icon(
+                Icons.star,
+                size: 65,
+                color: Colors.amber,
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              const Text(
+                  'Play and study with awesome Classmoor App right now!\nLearn whatever you want, find your teachers, or create your own classes.\nShare yor knowledge and results with friends!'),
+              const SizedBox(
+                height: 40,
+              ),
               AppCircleButton(
                 onTap: () => null,
-                child: const Icon(Icons.arrow_forward_ios, size: 35,),
-                
+                child: const Icon(
+                  Icons.arrow_forward_ios,
+                  size: 35,
+                ),
               )
             ],
           ),
