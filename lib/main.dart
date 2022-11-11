@@ -9,6 +9,8 @@ import 'package:flutter_application_1/screens/introduction/introduction.dart';
 import 'package:flutter_application_1/screens/splash/splash_screen.dart';
 import 'package:get/get.dart';
 
+import 'configs/themes/app_dark_theme.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   InitalBindings().dependencies();
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: LightTheme().buildLightTheme(),
+      theme: DarkTheme().buildDarkTheme(),
       debugShowCheckedModeBanner: false,
       getPages: AppRoutes.routes(),
     );

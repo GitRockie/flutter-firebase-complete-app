@@ -25,8 +25,9 @@ class AppIntroductionScreen extends StatelessWidget {
                 height: 40,
               ),
               const Text(
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 18, color: onSurfaceTextColor),
-                  'Play and study with awesome Classmoor App right now! Learn whatever you want, find your teachers, or create your own classes. \nShare your knowledge and results with friends!'),
+                  'Play and study with awesome Classmoor App right now! Learn whatever you want, find your teachers, or create your own classes. Share your knowledge and results with friends!'),
               const SizedBox(
                 height: 40,
               ),
