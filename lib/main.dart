@@ -1,6 +1,7 @@
 //import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/bindings/initial_bindings.dart';
 import 'package:flutter_application_1/data_uploader_screen.dart';
 import 'package:flutter_application_1/routes/app_routes.dart';
 import 'package:flutter_application_1/screens/introduction/introduction.dart';
@@ -8,6 +9,8 @@ import 'package:flutter_application_1/screens/splash/splash_screen.dart';
 import 'package:get/get.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  InitalBindings().dependencies();
   runApp(const MyApp());
 }
 

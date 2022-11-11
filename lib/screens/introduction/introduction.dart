@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/widgets/app_circle_button.dart';
 import 'package:get/get.dart';
 
-class AppIntroductionScren extends StatelessWidget {
-  const AppIntroductionScren({super.key});
+class AppIntroductionScreen extends StatelessWidget {
+  const AppIntroductionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
