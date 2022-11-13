@@ -12,7 +12,12 @@ class QuestionPaperController extends GetxController {
 
   Future<void> getAllPapers() async {
     //Names stored in Firebase backend
-    List<String> imgName = ['capoeira', 'flutter', 'dart', 'voice'];
+    List<String> imgName = [
+      'capoeira',
+      'chemistry',
+      'maths',
+      'physics',
+    ];
     try {
       //Run a folder looping through
       //Based on the name we pass it gets the coplete img path

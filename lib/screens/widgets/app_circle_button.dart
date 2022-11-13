@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AppCircleButton extends StatelessWidget {
   const AppCircleButton(
@@ -19,6 +20,9 @@ class AppCircleButton extends StatelessWidget {
         type: MaterialType.transparency,
         clipBehavior: Clip.hardEdge,
         shape: const CircleBorder(),
-        child: InkWell(child: child));
+        child: InkWell(
+          child: child,
+          onTap: () => Get.offAndToNamed("/home"),
+        ));
   }
 }

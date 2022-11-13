@@ -5,7 +5,7 @@ Reference get firebaseStorage => FirebaseStorage.instance.ref();
 
 class FirebaseStorageService extends GetxService {
   Future<String?> getImage(String? imgName) async {
-    if (imgName == null || imgName.isEmpty) {
+    if (imgName == null) {
       return null;
     }
     //Trying to gett the image Url
