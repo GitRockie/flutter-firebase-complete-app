@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
 }
 
 
-
+//Firebase lifecycle is ready to initWithFire
 /*Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
