@@ -18,6 +18,8 @@ class QuestionPaperController extends GetxController {
       'chemistry',
       'maths',
       'physics',
+      'singing',
+     
     ];
     try {
       //Run a folder looping through
