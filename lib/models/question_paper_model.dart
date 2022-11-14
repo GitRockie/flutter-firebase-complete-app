@@ -93,10 +93,19 @@ class Answers {
       : identifier = json['identifier'],
         answer = json['Answer'];
 
+
+  
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['identifier'] = this.identifier;
-    data['Answer'] = this.answer;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['identifier'] = identifier;
+    data['Answer'] = answer;
     return data;
   }
+
+  /*Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['identifier'] = identifier;
+    data['Answer'] = answer;
+    return data;
+  }*/
 }
