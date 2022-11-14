@@ -13,8 +13,9 @@ import 'package:get/get.dart';
 import 'configs/themes/app_dark_theme.dart';
 import 'services/firebase_storage_service.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   InitalBindings().dependencies();
   runApp(const MyApp());
 }
@@ -29,7 +30,6 @@ class MyApp extends StatelessWidget {
       //DarkTheme().buildDarkTheme(),
       //LightTheme().buildLightTheme(),
       debugShowCheckedModeBanner: false,
-
       getPages: AppRoutes.routes(),
     );
   }
