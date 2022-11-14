@@ -30,13 +30,14 @@ class QuestionPaperModel {
             .toList();
 
   //Retrieving Data from Snapshot imported from cloud_firestore package
+  //Map is wraped about DocumentSnapshot
   QuestionPaperModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> json)
-      : id = json['id'] as String,
-        title = json['title'] as String,
-        imageUrl = json['image_url'] as String,
-        description = json['Description'] as String,
+      : id = json.id, //garbbing an id
+        title = json['title'],
+        imageUrl = json['image_url'],
+        description = json['Description'],
         timeSeconds = json['time_seconds'],
-        questionCount = 0,
+        questionCount = json['question_count'] as int,
         questions = [];
 
   Map<String, dynamic> toJson() {
@@ -93,8 +94,6 @@ class Answers {
       : identifier = json['identifier'],
         answer = json['Answer'];
 
-
-  
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['identifier'] = identifier;
