@@ -11,6 +11,7 @@ import 'package:flutter_application_1/screens/splash/splash_screen.dart';
 import 'package:get/get.dart';
 
 import 'configs/themes/app_dark_theme.dart';
+import 'services/firebase_storage_service.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,10 +25,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: Get.find<ThemeController>().lightTheme,
+      theme: Get.find<ThemeController>().darkTheme,
       //DarkTheme().buildDarkTheme(),
       //LightTheme().buildLightTheme(),
       debugShowCheckedModeBanner: false,
+
       getPages: AppRoutes.routes(),
     );
   }
