@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
               child: FadeInImage(
                 image: NetworkImage(
                     _questionPaperController.allPaperImages[index]),
-                placeholder: const AssetImage('assets/images/class_moor.png'),
+                placeholder: const AssetImage('assets/images/loading.gif'),
               ),
             ),
           );
