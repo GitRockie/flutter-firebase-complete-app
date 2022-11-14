@@ -1,9 +1,13 @@
-import 'package:flutter/rendering.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_application_1/models/question_paper_model.dart';
 import 'package:flutter_application_1/services/firebase_storage_service.dart';
 import 'package:get/get.dart';
 
+import '../../firebase_ref/references.dart';
+
 class QuestionPaperController extends GetxController {
   final allPaperImages = <String>[].obs;
+  final allPapers = <QuestionPaperModel>[].obs;
 
   @override
   void onReady() {
@@ -19,18 +23,26 @@ class QuestionPaperController extends GetxController {
       'maths',
       'physics',
       'singing',
-     
     ];
     try {
-      //Run a folder looping through
-      //Based on the name we pass it gets the coplete img path
-      for (var img in imgName) {
-        final imgUrl =
-            //await Get.put(FirebaseStorageService()).getImage(img);
-            await Get.find<FirebaseStorageService>().getImage(img);
+      //Creating new object and get the data
+      QuerySnapshot<Map<String, dynamic>> data = await questionPaperRF.get();
+      //returning a list of Paper
+      final paperList = data.docs
+          .map((paper) => QuestionPaperModel.fromSnapshot(paper))
+          .toList();
+      allPapers.assignAll(paperList);
 
-        allPaperImages.add(imgUrl!);
+      //Run a folder looping through
+
+      for (var paper in paperList) {
+        final imgUrl =
+            await Get.find<FirebaseStorageService>().getImage(paper.title);
+
+        //based on the 'title' we return th complete image path assigning each of this paper
+        paper.imageUrl = imgUrl;
       }
+      allPapers.assignAll(paperList);
     } catch (e) {
       print(e);
     }
