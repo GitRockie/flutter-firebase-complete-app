@@ -7,7 +7,9 @@ class QuestionPaperModel {
   String description;
   int timeSeconds;
   List<Questions>? questions;
-  int questionCount;
+
+  int questionsCount;
+
 
   QuestionPaperModel(
       {required this.id,
@@ -16,28 +18,33 @@ class QuestionPaperModel {
       required this.description,
       required this.timeSeconds,
       required this.questions,
-      required this.questionCount});
 
+      required this.questionsCount});
+
+
+  //Json is coming from file
   QuestionPaperModel.fromJson(Map<String, dynamic> json)
       : id = json['id'] as String,
         title = json['title'] as String,
         imageUrl = json['image_url'] as String,
-        description = json['Description'] as String,
+        description = json['description'] as String,
         timeSeconds = json['time_seconds'],
-        questionCount = 0,
+
+        questionsCount = 0,
+
         questions = (json['questions'] as List)
             .map((dynamic e) => Questions.fromJson(e as Map<String, dynamic>))
             .toList();
 
-  //Retrieving Data from Snapshot imported from cloud_firestore package
-  //Map is wraped about DocumentSnapshot
+  //Json is coming from Firebase DB wrapped in Document Snapshot
   QuestionPaperModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> json)
-      : id = json.id, //garbbing an id
+      : id = json.id,
         title = json['title'],
         imageUrl = json['image_url'],
-        description = json['Description'],
+        description = json['description'],
         timeSeconds = json['time_seconds'],
-        questionCount = json['question_count'] as int,
+        questionsCount = json['questions_count'] as int,
+
         questions = [];
 
   Map<String, dynamic> toJson() {
@@ -45,7 +52,7 @@ class QuestionPaperModel {
     data['id'] = id;
     data['title'] = title;
     data['image_url'] = imageUrl;
-    data['Description'] = description;
+    data['description'] = description;
     data['time_seconds'] = timeSeconds;
 
     return data;

@@ -13,6 +13,7 @@ class LightTheme with SubThemeData {
   ThemeData buildLightTheme() {
     final ThemeData systemLightTheme = ThemeData.light();
     return systemLightTheme.copyWith(
+        primaryColor: primaryColorLight,
         iconTheme: getIconTheme(),
         textTheme: getTextTheme().apply(
             bodyColor: mainTextColorLight, displayColor: mainTextColorLight));
