@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_application_1/models/question_paper_model.dart';
 import 'package:flutter_application_1/services/firebase_storage_service.dart';
 import 'package:get/get.dart';
+
+import '../../firebase_ref/references.dart';
 
 class QuestionPaperController extends GetxController {
   //Put the data in this Controller
@@ -25,12 +28,20 @@ class QuestionPaperController extends GetxController {
     ];
     //Based on the name we pass it gets the coplete img path
     try {
-      //Run a folder looping through
+      //Query Snapshot get data of Collection from Reference file asyncronously
+      QuerySnapshot<Map<String, dynamic>> data = await questionPaperRF.get();
+      //Creating Map of Query Snapshot converting toList
+      final paperList = data.docs
+          .map((paper) => QuestionPaperModel.fromSnapshot(paper))
+          .toList();
+      allPapers.assignAll(paperList);
+      //Run a folder loop to look through it
 
-      for (var img in imgName) {
-        final imgUrl = await Get.find<FirebaseStorageService>().getImage(img);
-
-        allPaperImages.add(imgUrl!);
+      for (var paper in paperList) {
+        final imgUrl =
+            await Get.find<FirebaseStorageService>().getImage(paper.title);
+        //Based on tittle we get an image name
+        paper.imageUrl = imgUrl;
       }
     } catch (e) {
       print(e);
