@@ -29,6 +29,7 @@ class QuestionPaperController extends GetxController {
     ];
     //Based on the name we pass it gets the coplete img path
     try {
+
       //Query Snapshot get data of Collection from Reference file asyncronously
       QuerySnapshot<Map<String, dynamic>> data = await questionPaperRF.get();
       //Creating Map of Query Snapshot converting toList
@@ -43,6 +44,7 @@ class QuestionPaperController extends GetxController {
         final imgUrl =
             await Get.find<FirebaseStorageService>().getImage(paper.title);
         //Based on tittle we get an image path name
+
         paper.imageUrl = imgUrl;
       }
       allPapers.assignAll(paperList);

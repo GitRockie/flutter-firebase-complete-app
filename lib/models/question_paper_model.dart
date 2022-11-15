@@ -7,7 +7,9 @@ class QuestionPaperModel {
   String description;
   int timeSeconds;
   List<Questions>? questions;
+
   int questionsCount;
+
 
   QuestionPaperModel(
       {required this.id,
@@ -16,7 +18,9 @@ class QuestionPaperModel {
       required this.description,
       required this.timeSeconds,
       required this.questions,
+
       required this.questionsCount});
+
 
   //Json is coming from file
   QuestionPaperModel.fromJson(Map<String, dynamic> json)
@@ -25,7 +29,9 @@ class QuestionPaperModel {
         imageUrl = json['image_url'] as String,
         description = json['description'] as String,
         timeSeconds = json['time_seconds'],
+
         questionsCount = 0,
+
         questions = (json['questions'] as List)
             .map((dynamic e) => Questions.fromJson(e as Map<String, dynamic>))
             .toList();
@@ -38,6 +44,7 @@ class QuestionPaperModel {
         description = json['description'],
         timeSeconds = json['time_seconds'],
         questionsCount = json['questions_count'] as int,
+
         questions = [];
 
   Map<String, dynamic> toJson() {
@@ -95,9 +102,16 @@ class Answers {
         answer = json['Answer'];
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['identifier'] = this.identifier;
-    data['Answer'] = this.answer;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['identifier'] = identifier;
+    data['Answer'] = answer;
     return data;
   }
+
+  /*Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['identifier'] = identifier;
+    data['Answer'] = answer;
+    return data;
+  }*/
 }
