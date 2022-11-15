@@ -16,6 +16,7 @@ class QuestionCard extends StatelessWidget {
       child: Stack(
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
@@ -34,6 +35,19 @@ class QuestionCard extends StatelessWidget {
                           Image.asset('assets/images/logo_class_moor.png'),
                     ),
                   ),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(model.title),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 15),
+                      child: Text(model.description),
+                    )
+                  ],
                 ),
               )
             ],
