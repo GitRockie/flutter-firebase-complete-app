@@ -13,6 +13,7 @@ class QuestionPaperController extends GetxController {
   @override
   void onReady() {
     getAllPapers();
+
     super.onReady();
   }
 
@@ -34,15 +35,17 @@ class QuestionPaperController extends GetxController {
       final paperList = data.docs
           .map((paper) => QuestionPaperModel.fromSnapshot(paper))
           .toList();
+
       allPapers.assignAll(paperList);
       //Run a folder loop to look through it
 
       for (var paper in paperList) {
         final imgUrl =
             await Get.find<FirebaseStorageService>().getImage(paper.title);
-        //Based on tittle we get an image name
+        //Based on tittle we get an image path name
         paper.imageUrl = imgUrl;
       }
+      allPapers.assignAll(paperList);
     } catch (e) {
       print(e);
     }

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_application_1/controllers/question_paper/question_paper_controller.dart';
@@ -13,15 +14,20 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
         body: Obx(
       () => ListView.separated(
+        shrinkWrap: true,
         itemBuilder: (BuildContext context, int index) {
           return ClipRRect(
             child: SizedBox(
               height: 200,
               width: 200,
-              child: FadeInImage(
-                image: NetworkImage(
-                    _questionPaperController.allPaperImages[index]),
-                placeholder: const AssetImage('assets/images/loading.gif'),
+              child: CachedNetworkImage(
+                imageUrl: _questionPaperController.allPapers[index].imageUrl!,
+                placeholder: (context, url) => Container(
+                  alignment: Alignment.center,
+                  child: const CircularProgressIndicator(),
+                ),
+                errorWidget: (context, url, error) =>
+                    Image.asset('assets/images/logo_class_moor.png'),
               ),
             ),
           );
@@ -31,7 +37,7 @@ class HomeScreen extends StatelessWidget {
             height: 20,
           );
         },
-        itemCount: _questionPaperController.allPaperImages.length,
+        itemCount: _questionPaperController.allPapers.length,
       ),
     ));
   }

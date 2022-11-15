@@ -23,7 +23,7 @@ class QuestionPaperModel {
       : id = json['id'] as String,
         title = json['title'] as String,
         imageUrl = json['image_url'] as String,
-        description = json['Description'] as String,
+        description = json['description'] as String,
         timeSeconds = json['time_seconds'],
         questionsCount = 0,
         questions = (json['questions'] as List)
@@ -45,7 +45,7 @@ class QuestionPaperModel {
     data['id'] = id;
     data['title'] = title;
     data['image_url'] = imageUrl;
-    data['Description'] = description;
+    data['description'] = description;
     data['time_seconds'] = timeSeconds;
 
     return data;
