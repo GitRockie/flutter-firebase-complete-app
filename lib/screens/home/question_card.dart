@@ -1,7 +1,13 @@
+import 'dart:ui';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/configs/themes/custom_text_style.dart';
+
 import 'package:flutter_application_1/models/question_paper_model.dart';
+import 'package:flutter_application_1/screens/widgets/app_icon_text.dart';
 import 'package:get/get.dart';
+
 
 class QuestionCard extends StatelessWidget {
   const QuestionCard({super.key, required this.model});
@@ -42,10 +48,32 @@ class QuestionCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(model.title),
+                    Text(
+                      model.title,
+                      style: cardTitles(context)
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10, bottom: 15),
                       child: Text(model.description),
+                    ),
+                    Row(
+                      children:  [
+                        AppIconText(
+                          icon: Icon(Icons.help_outline_sharp, 
+                                color: Get.isDarkMode
+                                ? Colors.white
+                                : Theme.of(context).primaryColor,
+                                ), 
+                          text:  Text('${model.questionsCount} questions',
+                          style: detailText.copyWith(
+                            color:  Get.isDarkMode
+                                ? Colors.white
+                                : Theme.of(context).primaryColor,
+                          ),
+                          
+                          )
+                      )
+                     ],
                     )
                   ],
                 ),
