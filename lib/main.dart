@@ -9,8 +9,6 @@ import 'package:flutter_application_1/routes/app_routes.dart';
 
 import 'package:get/get.dart';
 
-
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -24,8 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-     theme: Get.find<ThemeController>().darkTheme,
-      
+      theme: Get.find<ThemeController>().lightTheme,
       debugShowCheckedModeBanner: false,
       getPages: AppRoutes.routes(),
     );
