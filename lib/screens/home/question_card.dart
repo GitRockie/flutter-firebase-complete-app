@@ -1,7 +1,6 @@
-import 'dart:ui';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/configs/themes/app_icons.dart';
 import 'package:flutter_application_1/configs/themes/custom_text_style.dart';
 import 'package:flutter_application_1/configs/themes/ui_parameters.dart';
 
@@ -113,7 +112,7 @@ class QuestionCard extends StatelessWidget {
                             bottomRight: Radius.circular(cardBorderRadius)),
                         color: Theme.of(context).primaryColor),
                     child: const Icon(
-                      Icons.wine_bar,
+                      AppIcons.trophyOutline,
                     ),
                   ),
                 ))
