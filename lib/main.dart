@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-     theme: Get.find<ThemeController>().lightTheme,
+     theme: Get.find<ThemeController>().darkTheme,
       
       debugShowCheckedModeBanner: false,
       getPages: AppRoutes.routes(),
