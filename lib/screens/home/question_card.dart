@@ -35,7 +35,10 @@ class QuestionCard extends StatelessWidget {
                       imageUrl: model.imageUrl!,
                       placeholder: (context, url) => Container(
                         alignment: Alignment.center,
-                        child: const CircularProgressIndicator(),
+                        child: const CircularProgressIndicator(
+                          backgroundColor: Colors.pink,
+                          
+                        ),
                       ),
                       errorWidget: (context, url, error) =>
                           Image.asset('assets/images/logo_class_moor.png'),
