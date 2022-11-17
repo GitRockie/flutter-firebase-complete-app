@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 const double _mobileScreenPadding = 25.0;
 const double _cardBorderRadius = 10.0;
- 
 
 //Creating getters
 double get mobileScreenPadding => _mobileScreenPadding;
@@ -17,8 +16,6 @@ class UIParameters {
       const EdgeInsets.all(_mobileScreenPadding);
 
   static bool isDarkMode() {
-    return Get.isDarkMode
-    ? true
-    : false;
+    return Get.isDarkMode ? true : false;
   }
 }
