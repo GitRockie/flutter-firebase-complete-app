@@ -9,7 +9,7 @@ import 'package:flutter_application_1/controllers/zoom_drawer_controller.dart';
 import 'package:flutter_application_1/screens/home/question_card.dart';
 import 'package:flutter_application_1/screens/widgets/app_circle_button.dart';
 import 'package:flutter_application_1/screens/widgets/content_area.dart';
-import 'package:flutter_application_1/screens/widgets/menu_icon_button.dart';
+
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
@@ -29,6 +29,9 @@ class HomeScreen extends GetView<CustomZoomDrawerController> {
           showShadow: true,
           angle: 0.0,
           style: DrawerStyle.defaultStyle,
+          menuBackgroundColor: Colors.white.withOpacity(0.6),
+          slideWidth: MediaQuery.of(context).size.width * 0.6,
+          duration: Duration(seconds: 4),
           menuScreen: const Center(
             child: Text(
               'Menu Screen',
@@ -46,7 +49,7 @@ class HomeScreen extends GetView<CustomZoomDrawerController> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          MenuIconButton(
+                          GestureDetector(
                             onTap: controller.toggleDrawer,
                             child: const Icon(
                               AppIcons.menuLeft,
