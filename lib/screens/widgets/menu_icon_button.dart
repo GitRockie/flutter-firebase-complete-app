@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AppCircleButton extends StatelessWidget {
-  const AppCircleButton(
+class MenuIconButton extends StatelessWidget {
+  const MenuIconButton(
       {super.key,
       required this.child,
       this.color,
@@ -22,7 +22,7 @@ class AppCircleButton extends StatelessWidget {
         shape: const CircleBorder(),
         child: InkWell(
           child: child,
-          onTap: () => Get.offAndToNamed("/home"),
+          onTap: () {},
         ));
   }
 }
