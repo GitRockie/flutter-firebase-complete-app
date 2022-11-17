@@ -6,6 +6,7 @@ import 'package:flutter_application_1/configs/themes/ui_parameters.dart';
 
 import 'package:flutter_application_1/controllers/question_paper/question_paper_controller.dart';
 import 'package:flutter_application_1/controllers/zoom_drawer_controller.dart';
+import 'package:flutter_application_1/screens/home/menu_screen.dart';
 import 'package:flutter_application_1/screens/home/question_card.dart';
 import 'package:flutter_application_1/screens/widgets/app_circle_button.dart';
 import 'package:flutter_application_1/screens/widgets/content_area.dart';
@@ -28,16 +29,10 @@ class HomeScreen extends GetView<CustomZoomDrawerController> {
           controller: _.zoomDrawerController,
           showShadow: true,
           angle: 0.0,
-          style: DrawerStyle.defaultStyle,
-          menuBackgroundColor: Colors.white.withOpacity(0.6),
-          slideWidth: MediaQuery.of(context).size.width * 0.6,
-          duration: Duration(seconds: 4),
-          menuScreen: const Center(
-            child: Text(
-              'Menu Screen',
-              style: TextStyle(color: Colors.red),
-            ),
-          ),
+          //style: DrawerStyle.defaultStyle,
+          //menuBackgroundColor: Colors.white.withOpacity(0.5),
+          slideWidth: MediaQuery.of(context).size.width * 0.8,
+          menuScreen: const MyMenuScreen(),
           mainScreen: Container(
               decoration: BoxDecoration(gradient: mainGradient()),
               child: SafeArea(
