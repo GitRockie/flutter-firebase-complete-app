@@ -26,7 +26,6 @@ class HomeScreen extends GetView<CustomZoomDrawerController> {
       builder: (_) {
         return ZoomDrawer(
           borderRadius: 50.0,
-          
           closeCurve: Curves.easeInBack,
           menuScreenWidth: double.maxFinite,
           controller: _.zoomDrawerController,
@@ -34,7 +33,7 @@ class HomeScreen extends GetView<CustomZoomDrawerController> {
           angle: 0.0,
           style: DrawerStyle.defaultStyle,
           menuBackgroundColor: Colors.white.withOpacity(0.5),
-          slideWidth: MediaQuery.of(context).size.width * 0.7,
+          slideWidth: MediaQuery.of(context).size.width * 0.74,
           menuScreen: const MyMenuScreen(),
           mainScreen: Container(
               decoration: BoxDecoration(gradient: mainGradient()),
