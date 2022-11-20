@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_application_1/firebase_ref/references.dart';
+import 'package:flutter_application_1/screens/widgets/dialogs/dialogue_widget.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -62,5 +63,17 @@ class AuthController extends GetxController {
 
   void navigateToIntroduction() {
     Get.offAllNamed('/introduction');
+  }
+
+  void showLoginAlertDialogue() {
+    Get.dialog(Dialogues.questionStartDialogue(onTap: () {
+      Get.back();
+      //Navigate to login Page
+    }), barrierDismissible: false);
+  }
+
+  //Check if User is Logged
+  bool isLoggedIn() {
+    return _auth.currentUser != null;
   }
 }
