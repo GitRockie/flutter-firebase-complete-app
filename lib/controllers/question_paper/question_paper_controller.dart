@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_application_1/controllers/question_paper/auth_controller.dart';
 import 'package:flutter_application_1/models/question_paper_model.dart';
+import 'package:flutter_application_1/services/app_logger.dart';
 import 'package:flutter_application_1/services/firebase_storage_service.dart';
 import 'package:get/get.dart';
 
@@ -29,7 +31,6 @@ class QuestionPaperController extends GetxController {
     ];*/
     //Based on the name we pass it gets the coplete img path
     try {
-
       //Query Snapshot get data of Collection from Reference file asyncronously
       QuerySnapshot<Map<String, dynamic>> data = await questionPaperRF.get();
       //Creating Map of Query Snapshot converting toList
@@ -48,8 +49,26 @@ class QuestionPaperController extends GetxController {
         paper.imageUrl = imgUrl;
       }
       allPapers.assignAll(paperList);
-    } catch (e) {
-      print(e);
+    } catch (i) {
+      AppLogger.i(i);
+    }
+  }
+
+  void navigateToQuestions(
+      {required QuestionPaperModel paper, bool tryAgain = false}) {
+    AuthController _authController = Get.find();
+    if (_authController.isLoggedIn()) {
+      if (tryAgain) {
+        Get.back();
+        //Removing the Page of UI
+        //Get.offNamed(page)
+      } else {
+        //UI still should be in the memory
+        //Get.toNamed(page)
+      }
+    } else {
+      print('The title is: ${paper.title}');
+      _authController.showLoginAlertDialogue();
     }
   }
 }

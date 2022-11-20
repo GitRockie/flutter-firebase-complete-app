@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/configs/themes/app_colors.dart';
 
-import 'package:flutter_application_1/screens/widgets/app_circle_button.dart';
+import 'package:flutter_application_1/widgets/app_circle_button.dart';
 import 'package:get/get.dart';
 
 class AppIntroductionScreen extends StatelessWidget {
