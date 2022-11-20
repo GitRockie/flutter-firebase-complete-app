@@ -1,5 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_application_1/firebase_ref/references.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+import '../../services/app_logger.dart';
 
 class AuthController extends GetxController {
   @override
@@ -28,6 +32,33 @@ class AuthController extends GetxController {
   }
 
   //Google SignIn method
+  signInWithGoogle() async {
+    final GoogleSignIn _googleSignIn = GoogleSignIn();
+    try {
+      GoogleSignInAccount? account = await _googleSignIn.signIn();
+      //checking the account Object we created
+      if (account != null) {
+        final _authAccount = await account.authentication;
+        final _credential = GoogleAuthProvider.credential(
+            idToken: _authAccount.idToken,
+            accessToken: _authAccount.accessToken);
+
+        await _auth.signInWithCredential(_credential);
+        await saveUser(account);
+      }
+    } on Exception catch (error) {
+      AppLogger.i(error);
+    }
+  }
+
+  saveUser(GoogleSignInAccount account) {
+    //SigIn the info to the Firebase in DB
+    userRF.doc(account.email).set({
+      'email': account.email,
+      'name': account.displayName,
+      'profilepic': account.photoUrl
+    });
+  }
 
   void navigateToIntroduction() {
     Get.offAllNamed('/introduction');
