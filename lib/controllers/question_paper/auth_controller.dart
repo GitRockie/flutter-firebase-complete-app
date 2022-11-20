@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_application_1/firebase_ref/references.dart';
-import 'package:flutter_application_1/screens/widgets/dialogs/dialogue_widget.dart';
+import 'package:flutter_application_1/screens/login/login_screen.dart';
+import 'package:flutter_application_1/widgets/dialogs/dialogue_widget.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -69,7 +70,12 @@ class AuthController extends GetxController {
     Get.dialog(Dialogues.questionStartDialogue(onTap: () {
       Get.back();
       //Navigate to login Page
+      naviateToLoginScreen();
     }), barrierDismissible: false);
+  }
+
+  void naviateToLoginScreen() {
+    Get.toNamed(LoginScreen.routeName);
   }
 
   //Check if User is Logged

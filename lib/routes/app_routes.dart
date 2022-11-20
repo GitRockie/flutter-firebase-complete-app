@@ -2,6 +2,7 @@ import 'package:flutter_application_1/controllers/question_paper/question_paper_
 import 'package:flutter_application_1/controllers/zoom_drawer_controller.dart';
 import 'package:flutter_application_1/screens/home/home_screen.dart';
 import 'package:flutter_application_1/screens/introduction/introduction.dart';
+import 'package:flutter_application_1/screens/login/login_screen.dart';
 import 'package:get/get.dart';
 
 import '../screens/splash/splash_screen.dart';
@@ -18,5 +19,6 @@ class AppRoutes {
               Get.put(QuestionPaperController());
               Get.put(CustomZoomDrawerController());
             })),
+        GetPage(name: LoginScreen.routeName, page: () => const LoginScreen())
       ];
 }

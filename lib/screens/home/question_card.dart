@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/configs/themes/app_icons.dart';
 import 'package:flutter_application_1/configs/themes/custom_text_style.dart';
 import 'package:flutter_application_1/configs/themes/ui_parameters.dart';
+import 'package:flutter_application_1/controllers/question_paper/question_paper_controller.dart';
 
 import 'package:flutter_application_1/models/question_paper_model.dart';
-import 'package:flutter_application_1/screens/widgets/app_icon_text.dart';
+import 'package:flutter_application_1/widgets/app_icon_text.dart';
 import 'package:get/get.dart';
 
-class QuestionCard extends StatelessWidget {
+class QuestionCard extends GetView<QuestionPaperController> {
   const QuestionCard({super.key, required this.model});
 
   final QuestionPaperModel model;
@@ -22,7 +23,7 @@ class QuestionCard extends StatelessWidget {
           color: Theme.of(context).cardColor),
       child: InkWell(
         onTap: () {
-          print('${model.title}');
+          controller.navigateToQuestions(paper: model);
         },
         child: Padding(
           padding: const EdgeInsets.all(_padding),

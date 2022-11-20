@@ -9,7 +9,7 @@ import 'package:flutter_application_1/controllers/zoom_drawer_controller.dart';
 import 'package:flutter_application_1/screens/home/menu_screen.dart';
 import 'package:flutter_application_1/screens/home/question_card.dart';
 
-import 'package:flutter_application_1/screens/widgets/content_area.dart';
+import 'package:flutter_application_1/widgets/content_area.dart';
 
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';

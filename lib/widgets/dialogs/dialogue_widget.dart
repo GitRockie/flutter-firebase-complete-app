@@ -12,13 +12,16 @@ class Dialogues {
   //Creating Widget
   static Widget questionStartDialogue({required VoidCallback onTap}) {
     return AlertDialog(
-      content: Column(children: const [
-        Text(
-          'Hi, there!',
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-        ),
-        Text('Please, login first!')
-      ]),
+      content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text(
+              'Hi, there!',
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
+            Text('Please, login first!')
+          ]),
       actions: [TextButton(onPressed: onTap, child: const Text('Okay'))],
     );
   }
