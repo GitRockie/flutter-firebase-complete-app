@@ -3,6 +3,9 @@ import 'package:firebase_storage/firebase_storage.dart';
 
 //Creating collection referecies
 final fireStore = FirebaseFirestore.instance;
+Reference get firebaseStorage => FirebaseStorage.instance.ref();
+
+final userRF = fireStore.collection('users');
 final questionPaperRF = fireStore.collection('questionPapers');
 //call the method questionRF passing paperId and questionId
 DocumentReference questionRF({
@@ -10,5 +13,3 @@ DocumentReference questionRF({
   required String questionId,
 }) => //return the doc. questionId
     questionPaperRF.doc(paperId).collection('questions').doc(questionId);
-
-Reference get firebaseStorage => FirebaseStorage.instance.ref();
