@@ -34,7 +34,7 @@ class AuthController extends GetxController {
   }
 
   //Google SignIn method
-  signInWithGoogle() async {
+  Future<void> signInWithGoogle() async {
     final GoogleSignIn _googleSignIn = GoogleSignIn();
     try {
       GoogleSignInAccount? account = await _googleSignIn.signIn();

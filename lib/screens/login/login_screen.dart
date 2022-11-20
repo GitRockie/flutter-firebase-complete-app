@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_application_1/configs/themes/app_colors.dart';
 
-class LoginScreen extends StatelessWidget {
+import 'package:flutter_application_1/configs/themes/app_colors.dart';
+import 'package:flutter_application_1/controllers/question_paper/auth_controller.dart';
+import 'package:flutter_application_1/widgets/common/main_button.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+
+class LoginScreen extends GetView<AuthController> {
   const LoginScreen({super.key});
   static const String routeName = '/login';
   @override
@@ -30,6 +33,29 @@ class LoginScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
+              ),
+            ),
+            MainButton(
+              onTap: () {
+                controller.signInWithGoogle();
+              },
+              child: Stack(
+                children: [
+                  Positioned(
+                    top: 0,
+                    bottom: 0,
+                    left: 0,
+                    child: SvgPicture.asset('assets/icons/google.svg'),
+                  ),
+                  Center(
+                    child: Text(
+                      'Sign In with Google',
+                      style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  )
+                ],
               ),
             )
           ],
