@@ -53,6 +53,8 @@ class AuthController extends GetxController {
     }
   }
 
+//keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+//SHA 1 generated
   saveUser(GoogleSignInAccount account) {
     //SigIn the info to the Firebase in DB
     userRF.doc(account.email).set({
