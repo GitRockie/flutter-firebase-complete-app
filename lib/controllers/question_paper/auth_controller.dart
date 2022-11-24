@@ -53,6 +53,12 @@ class AuthController extends GetxController {
     }
   }
 
+  //User method current user getting the value fron Firebase _auth instance
+  User? getUser() {
+    _user.value = _auth.currentUser;
+    return _user.value;
+  }
+
 //keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
 //SHA 1 generated
   saveUser(GoogleSignInAccount account) {

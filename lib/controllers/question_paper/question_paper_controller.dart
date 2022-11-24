@@ -67,7 +67,6 @@ class QuestionPaperController extends GetxController {
         //Get.toNamed(page)
       }
     } else {
-      print('The title is: ${paper.title}');
       _authController.showLoginAlertDialogue();
     }
   }
