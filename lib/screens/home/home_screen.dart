@@ -18,6 +18,8 @@ import 'package:get/get.dart';
 class HomeScreen extends GetView<CustomZoomDrawerController> {
   const HomeScreen({super.key});
 
+  static const String routeName = '/home';
+
   @override
   Widget build(BuildContext context) {
     //savin Controller instance

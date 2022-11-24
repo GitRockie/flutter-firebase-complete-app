@@ -1,12 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'question_paper/auth_controller.dart';
+
 class CustomZoomDrawerController extends GetxController {
   final zoomDrawerController = ZoomDrawerController();
+  Rxn<User?> user = Rxn();
 
   @override
   void onReady() {
+    user.value = Get.find<AuthController>().getUser();
     super.onReady();
   }
 
@@ -16,11 +21,20 @@ class CustomZoomDrawerController extends GetxController {
   }
 
   //Firebase Google method create for Sign Out and signIn
-  void signOut() {}
+  void signOut() {
+    Get.find<AuthController>().signOut();
+  }
 
   void signIn() {}
 
-  void meOnGit() {}
+  void meOnGit() {
+    _launch('https://github.com/GitRockie');
+  }
+
+  void facebook() {
+    _launch('https://facebook.com');
+  }
+
   //User send the email trough email client
   void email() {
     final Uri emailLaunchUri = Uri(

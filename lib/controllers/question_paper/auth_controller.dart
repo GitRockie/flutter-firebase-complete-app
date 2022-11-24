@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_application_1/firebase_ref/references.dart';
+import 'package:flutter_application_1/screens/home/home_screen.dart';
 import 'package:flutter_application_1/screens/login/login_screen.dart';
 import 'package:flutter_application_1/widgets/dialogs/dialogue_widget.dart';
 import 'package:get/get.dart';
@@ -47,10 +48,17 @@ class AuthController extends GetxController {
 
         await _auth.signInWithCredential(_credential);
         await saveUser(account);
+        navigateToHomeScreen();
       }
     } on Exception catch (error) {
       AppLogger.i(error);
     }
+  }
+
+  //User method current user getting the value fron Firebase _auth instance
+  User? getUser() {
+    _user.value = _auth.currentUser;
+    return _user.value;
   }
 
 //keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
@@ -64,8 +72,22 @@ class AuthController extends GetxController {
     });
   }
 
+  Future<void> signOut() async {
+    AppLogger.d('SignOut');
+    try {
+      await _auth.signOut();
+      navigateToHomeScreen();
+    } on FirebaseAuthException catch (e) {
+      AppLogger.w(e);
+    }
+  }
+
   void navigateToIntroduction() {
     Get.offAllNamed('/introduction');
+  }
+
+  void navigateToHomeScreen() {
+    Get.offAllNamed(HomeScreen.routeName);
   }
 
   void showLoginAlertDialogue() {
