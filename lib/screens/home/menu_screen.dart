@@ -58,7 +58,7 @@ class MyMenuScreen extends GetView<CustomZoomDrawerController> {
                     _DrawerButton(
                       icon: Icons.facebook,
                       lable: 'Facebook',
-                      onPressed: () => controller.meOnGit(),
+                      onPressed: () => controller.facebook(),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 25),
@@ -68,10 +68,13 @@ class MyMenuScreen extends GetView<CustomZoomDrawerController> {
                         onPressed: () => controller.email(),
                       ),
                     ),
+                    const Spacer(
+                      flex: 4,
+                    ),
                     _DrawerButton(
                       icon: Icons.logout,
                       lable: 'Log Out',
-                      onPressed: () => controller.meOnGit(),
+                      onPressed: () => controller.signOut(),
                     ),
                   ],
                 ),
@@ -97,7 +100,7 @@ class _DrawerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton.icon(
-      onPressed: null,
+      onPressed: onPressed,
       icon: Icon(
         icon,
         size: 15,

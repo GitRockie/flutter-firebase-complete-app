@@ -21,11 +21,20 @@ class CustomZoomDrawerController extends GetxController {
   }
 
   //Firebase Google method create for Sign Out and signIn
-  void signOut() {}
+  void signOut() {
+    Get.find<AuthController>().signOut();
+  }
 
   void signIn() {}
 
-  void meOnGit() {}
+  void meOnGit() {
+    _launch('https://github.com/GitRockie');
+  }
+
+  void facebook() {
+    _launch('https://facebook.com');
+  }
+
   //User send the email trough email client
   void email() {
     final Uri emailLaunchUri = Uri(

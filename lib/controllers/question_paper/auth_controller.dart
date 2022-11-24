@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_application_1/firebase_ref/references.dart';
+import 'package:flutter_application_1/screens/home/home_screen.dart';
 import 'package:flutter_application_1/screens/login/login_screen.dart';
 import 'package:flutter_application_1/widgets/dialogs/dialogue_widget.dart';
 import 'package:get/get.dart';
@@ -70,8 +71,22 @@ class AuthController extends GetxController {
     });
   }
 
+  Future<void> signOut() async {
+    AppLogger.d('SignOut');
+    try {
+      await _auth.signOut();
+      navigateToHomeScreen();
+    } on FirebaseAuthException catch (e) {
+      AppLogger.w(e);
+    }
+  }
+
   void navigateToIntroduction() {
     Get.offAllNamed('/introduction');
+  }
+
+  void navigateToHomeScreen() {
+    Get.offAllNamed(HomeScreen.routeName);
   }
 
   void showLoginAlertDialogue() {
