@@ -48,6 +48,7 @@ class AuthController extends GetxController {
 
         await _auth.signInWithCredential(_credential);
         await saveUser(account);
+        navigateToHomeScreen();
       }
     } on Exception catch (error) {
       AppLogger.i(error);

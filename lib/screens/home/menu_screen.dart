@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/configs/themes/app_colors.dart';
+import 'package:flutter_application_1/configs/themes/app_icons.dart';
 import 'package:flutter_application_1/configs/themes/ui_parameters.dart';
 import 'package:flutter_application_1/controllers/zoom_drawer_controller.dart';
 import 'package:get/get.dart';
@@ -51,7 +52,7 @@ class MyMenuScreen extends GetView<CustomZoomDrawerController> {
                       flex: 1,
                     ),
                     _DrawerButton(
-                      icon: Icons.gite,
+                      icon: AppIcons.gitHub,
                       lable: 'Git Hub',
                       onPressed: () => controller.meOnGit(),
                     ),
