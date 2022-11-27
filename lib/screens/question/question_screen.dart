@@ -1,11 +1,16 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/common/background_decoration.dart';
 
 class QuestionScreen extends StatelessWidget {
   const QuestionScreen({super.key});
+  static const String routeName = '/questions';
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Scaffold(
+      body: BackgrounDecoration(
+        chid: Text('I am Here!'),
+      ),
+    );
   }
 }

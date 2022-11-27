@@ -6,6 +6,7 @@ import 'package:flutter_application_1/services/firebase_storage_service.dart';
 import 'package:get/get.dart';
 
 import '../../firebase_ref/references.dart';
+import '../../screens/question/question_screen.dart';
 
 class QuestionPaperController extends GetxController {
   //Put the data in this Controller
@@ -64,7 +65,7 @@ class QuestionPaperController extends GetxController {
         //Get.offNamed(page)
       } else {
         //UI still should be in the memory
-        //Get.toNamed(page)
+        Get.toNamed(QuestionScreen.routeName, arguments: paper);
       }
     } else {
       _authController.showLoginAlertDialogue();
