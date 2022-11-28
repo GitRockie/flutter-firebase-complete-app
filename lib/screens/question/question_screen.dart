@@ -9,7 +9,7 @@ class QuestionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: BackgrounDecoration(
-        chid: Text('I am Here!'),
+        chid: Center(child: Text('I am Here!')),
       ),
     );
   }
