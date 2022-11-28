@@ -10,7 +10,6 @@ class QuestionPaperModel {
 
   int questionsCount;
 
-
   QuestionPaperModel(
       {required this.id,
       required this.title,
@@ -18,9 +17,7 @@ class QuestionPaperModel {
       required this.description,
       required this.timeSeconds,
       required this.questions,
-
       required this.questionsCount});
-
 
   //Json is coming from file
   QuestionPaperModel.fromJson(Map<String, dynamic> json)
@@ -29,9 +26,7 @@ class QuestionPaperModel {
         imageUrl = json['image_url'] as String,
         description = json['description'] as String,
         timeSeconds = json['time_seconds'],
-
         questionsCount = 0,
-
         questions = (json['questions'] as List)
             .map((dynamic e) => Questions.fromJson(e as Map<String, dynamic>))
             .toList();
@@ -46,7 +41,7 @@ class QuestionPaperModel {
         questionsCount = json['questions_count'] as int,
         questions = [];
 
-  String timeInMinutes() => '${(timeSeconds/60).ceil()} min.';
+  String timeInMinutes() => '${(timeSeconds / 60).ceil()} min.';
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
@@ -80,6 +75,12 @@ class Questions {
             (json['answers'] as List).map((e) => Answers.fromJson(e)).toList(),
         correctAnswer = json['correct_answer'];
 
+  Questions.fromSnapshot(QueryDocumentSnapshot<Map<String, dynamic>> snapshot)
+      : id = snapshot.id,
+        question = snapshot['question'],
+        answers = [],
+        correctAnswer = snapshot['correct_answer'];
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = id;
@@ -101,6 +102,10 @@ class Answers {
   Answers.fromJson(Map<String, dynamic> json)
       : identifier = json['identifier'],
         answer = json['Answer'];
+
+  Answers.fromSnapshot(QueryDocumentSnapshot<Map<String, dynamic>> snapshot)
+      : identifier = snapshot['identifier'] as String?,
+        answer = snapshot['Answer'] as String?;
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};

@@ -6,6 +6,7 @@ import 'package:flutter_application_1/screens/login/login_screen.dart';
 import 'package:flutter_application_1/screens/question/question_screen.dart';
 import 'package:get/get.dart';
 
+import '../controllers/question_paper/questions_controller.dart';
 import '../screens/splash/splash_screen.dart';
 
 class AppRoutes {
@@ -22,8 +23,10 @@ class AppRoutes {
             })),
         GetPage(name: LoginScreen.routeName, page: () => const LoginScreen()),
         GetPage(
-          name: QuestionScreen.routeName,
-          page: () => const QuestionScreen(),
-        )
+            name: QuestionScreen.routeName,
+            page: () => const QuestionScreen(),
+            binding: BindingsBuilder((() {
+              Get.put(QuestionsController());
+            })))
       ];
 }
