@@ -4,7 +4,10 @@ import 'package:flutter_application_1/firebase_ref/references.dart';
 import 'package:flutter_application_1/models/question_paper_model.dart';
 import 'package:get/get.dart';
 
+import '../../firebase_ref/loading_status.dart';
+
 class QuestionsController extends GetxController {
+  final loadingStatus = LoadingStatus.loading.obs;
   late QuestionPaperModel questionPaperModel;
   final allQuestions = <Questions>[];
   @override
@@ -18,6 +21,7 @@ class QuestionsController extends GetxController {
 
   Future<void> loadData(QuestionPaperModel questionPaper) async {
     questionPaperModel = questionPaper;
+    loadingStatus.value = LoadingStatus.loading;
     try {
       final QuerySnapshot<Map<String, dynamic>> questionQuery =
           await questionPaperRF
