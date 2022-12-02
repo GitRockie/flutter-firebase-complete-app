@@ -28,7 +28,7 @@ class QuestionScreenHolder extends StatelessWidget {
             EasySeparatedColumn(
               children: [line, line, line, line],
               separatorBuilder: (BuildContext context, int index) {
-                return const SizedBox(height: 20);
+                return const SizedBox(height: 10);
               },
             ),
             answer,
