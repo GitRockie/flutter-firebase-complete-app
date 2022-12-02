@@ -54,7 +54,7 @@ class QuestionsController extends GetxController {
           allQuestions.assignAll(questionPaper.questions!);
           currentQuestion.value = questionPaper.questions![0];
           print(questionPaper.questions![0].question);
-          loadingStatus.value = LoadingStatus.completed;
+          //loadingStatus.value = LoadingStatus.completed;
         } else {
           loadingStatus.value = LoadingStatus.error;
         }
