@@ -32,7 +32,23 @@ class QuestionScreen extends GetView<QuestionsController> {
                         Text(
                           controller.currentQuestion.value!.question,
                           style: questionText,
-                        )
+                        ),
+                        GetBuilder<QuestionsController>(builder: (context) {
+                          return ListView.separated(
+                            itemBuilder: (BuildContext context, int index) {
+                              final answer = controller
+                                  .currentQuestion.value!.answers[index];
+                              return Container();
+                            },
+                            separatorBuilder:
+                                (BuildContext context, int index) =>
+                                    const SizedBox(
+                              height: 10,
+                            ),
+                            itemCount: controller
+                                .currentQuestion.value!.answers.length,
+                          );
+                        })
                       ],
                     ),
                   ),
