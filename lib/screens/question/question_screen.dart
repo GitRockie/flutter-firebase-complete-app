@@ -95,6 +95,15 @@ class QuestionScreen extends GetView<QuestionsController> {
                             ),
                           ),
                         ),
+                      ),
+                      Expanded(
+                        child: Visibility(
+                            child: MainButton(
+                          onTap: () {
+                            controller.nextQuestion();
+                          },
+                          title: 'Next',
+                        )),
                       )
                     ],
                   ),
