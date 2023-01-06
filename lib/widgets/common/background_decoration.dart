@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/configs/themes/app_colors.dart';
 
 class BackgrounDecoration extends StatelessWidget {
-  final Widget chid;
+  final Widget child;
   final bool showGradient;
   const BackgrounDecoration(
-      {super.key, required this.chid, this.showGradient = false});
+      {super.key, required this.child, this.showGradient = false});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class BackgrounDecoration extends StatelessWidget {
             painter: BackgroundPainter(),
           ),
         )),
-        Positioned(child: chid),
+        Positioned.fill(child: SafeArea(child: child)),
       ],
     );
   }
