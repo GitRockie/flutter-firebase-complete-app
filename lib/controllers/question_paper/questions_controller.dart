@@ -12,6 +12,7 @@ class QuestionsController extends GetxController {
   final allQuestions = <Questions>[];
   final questionIndex = 0.obs;
   bool get isFirstQuestion => questionIndex.value > 0;
+  bool get isLastQuestion => questionIndex.value >= allQuestions.length - 1;
   //Reactive variable create making Questions observable
   Rxn<Questions> currentQuestion = Rxn<Questions>();
   @override
@@ -76,6 +77,12 @@ class QuestionsController extends GetxController {
   void nextQuestion() {
     if (questionIndex.value >= allQuestions.length - 1) return;
     questionIndex.value++;
+    currentQuestion.value = allQuestions[questionIndex.value];
+  }
+
+  void prevQuestion() {
+    if (questionIndex.value <= 0) return;
+    questionIndex.value--;
     currentQuestion.value = allQuestions[questionIndex.value];
   }
 }

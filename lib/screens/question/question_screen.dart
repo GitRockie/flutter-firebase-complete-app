@@ -86,7 +86,9 @@ class QuestionScreen extends GetView<QuestionsController> {
                           width: 55,
                           height: 55,
                           child: MainButton(
-                            onTap: () {},
+                            onTap: () {
+                              controller.prevQuestion();
+                            },
                             child: Icon(
                               Icons.arrow_back_ios_new,
                               color: Get.isDarkMode
@@ -98,12 +100,18 @@ class QuestionScreen extends GetView<QuestionsController> {
                       ),
                       Expanded(
                         child: Visibility(
+                            visible: controller.loadingStatus.value ==
+                                LoadingStatus.completed,
                             child: MainButton(
-                          onTap: () {
-                            controller.nextQuestion();
-                          },
-                          title: 'Next',
-                        )),
+                              onTap: () {
+                                controller.isLastQuestion
+                                    ? Container()
+                                    : controller.nextQuestion();
+                              },
+                              title: controller.isLastQuestion
+                                  ? 'Complete'
+                                  : 'Next',
+                            )),
                       )
                     ],
                   ),
