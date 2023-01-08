@@ -4,6 +4,7 @@ import 'package:flutter_application_1/screens/home/home_screen.dart';
 import 'package:flutter_application_1/screens/introduction/introduction.dart';
 import 'package:flutter_application_1/screens/login/login_screen.dart';
 import 'package:flutter_application_1/screens/question/question_screen.dart';
+import 'package:flutter_application_1/screens/question/test_overview_screen.dart';
 import 'package:get/get.dart';
 
 import '../controllers/question_paper/questions_controller.dart';
@@ -26,7 +27,12 @@ class AppRoutes {
             name: QuestionScreen.routeName,
             page: () => const QuestionScreen(),
             binding: BindingsBuilder((() {
-              Get.put(QuestionsController());
-            })))
+              Get.put<QuestionsController>(QuestionsController());
+            }))),
+        //This Page is coming from above QuestionScreen()
+        GetPage(
+          name: TestOverviewScreen.routeName,
+          page: () => const TestOverviewScreen(),
+        )
       ];
 }
