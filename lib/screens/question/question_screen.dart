@@ -10,6 +10,7 @@ import 'package:flutter_application_1/widgets/common/main_button.dart';
 import 'package:flutter_application_1/widgets/common/question_placeholder.dart';
 import 'package:flutter_application_1/widgets/content_area.dart';
 import 'package:flutter_application_1/widgets/questions/answer_card.dart';
+import 'package:flutter_application_1/widgets/questions/count_down_timer.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/question_paper/questions_controller.dart';
@@ -29,7 +30,10 @@ class QuestionScreen extends GetView<QuestionsController> {
                   shape: StadiumBorder(
                       side: BorderSide(color: onSurfaceTextColor, width: 2))),
               // ignore: unnecessary_string_interpolations
-              child: Obx(() => Text('${controller.time.value}')),
+              child: Obx(() => CountDownTimer(
+                    time: controller.time.value,
+                    color: onSurfaceTextColor,
+                  )),
             ),
             showActionIcon: true,
             titleWidget: Obx(

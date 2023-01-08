@@ -52,7 +52,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   offset: const Offset(10, 0),
                   child: AppCircleButton(
                     onTap: onMenuActionTap ?? null,
-                    child: const Icon(AppIcons.menuLeft),
+                    child: const Icon(AppIcons.menu),
                   ),
                 )
             ],

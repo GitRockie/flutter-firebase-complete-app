@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/configs/themes/app_colors.dart';
+import 'package:get/get.dart';
 
 import 'ui_parameters.dart';
 
@@ -17,3 +18,9 @@ const headerText = TextStyle(
 
 const appBarTextStyle = TextStyle(
     fontWeight: FontWeight.bold, fontSize: 16, color: onSurfaceTextColor);
+
+TextStyle countDownTimerStyle() => TextStyle(
+    letterSpacing: 2,
+    color: UIParameters.isDarkMode()
+        ? Theme.of(Get.context!).textTheme.bodyText1!.color
+        : Theme.of(Get.context!).primaryColor);
