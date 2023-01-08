@@ -23,19 +23,21 @@ class QuestionScreen extends GetView<QuestionsController> {
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: CustomAppBar(
-          leading: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            decoration: const ShapeDecoration(
-                shape: StadiumBorder(
-                    side: BorderSide(color: onSurfaceTextColor, width: 2))),
-            child: const Text('Timer'),
-          ),
-          showActionIcon: true,
-          titleWidget: const Text(
-            '1',
-            style: appBarTextStyle,
-          ),
-        ),
+            leading: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: const ShapeDecoration(
+                  shape: StadiumBorder(
+                      side: BorderSide(color: onSurfaceTextColor, width: 2))),
+              // ignore: unnecessary_string_interpolations
+              child: Obx(() => Text('${controller.time.value}')),
+            ),
+            showActionIcon: true,
+            titleWidget: Obx(
+              () => Text(
+                'Question: ${(controller.questionIndex.value + 1).toString().padLeft(2, '0')}',
+                style: appBarTextStyle,
+              ),
+            )),
         body: BackgrounDecoration(
           child: Obx(() => Column(
                 children: [
