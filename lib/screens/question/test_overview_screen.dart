@@ -8,6 +8,7 @@ import 'package:flutter_application_1/screens/home/question_card.dart';
 
 import 'package:flutter_application_1/widgets/common/background_decoration.dart';
 import 'package:flutter_application_1/widgets/common/custom_app_bar.dart';
+import 'package:flutter_application_1/widgets/common/main_button.dart';
 import 'package:flutter_application_1/widgets/content_area.dart';
 import 'package:flutter_application_1/widgets/questions/answer_card.dart';
 import 'package:flutter_application_1/widgets/questions/count_down_timer.dart';
@@ -72,7 +73,17 @@ class TestOverviewScreen extends GetView<QuestionsController> {
                         }),
                   ),
                 ],
-              )))
+              ))),
+              ColoredBox(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                child: Padding(
+                  padding: UIParameters.mobileScreenPadding,
+                  child: MainButton(
+                    onTap: () => controller.complete(),
+                    title: 'Complete',
+                  ),
+                ),
+              )
             ],
           ),
         ));
