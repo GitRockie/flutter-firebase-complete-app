@@ -13,12 +13,12 @@ class TestOverviewScreen extends GetView<QuestionsController> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: CustomAppBar(
-        title: 'Test Over',
+        title: controller.completedTest,
       ),
-      body: BackgrounDecoration(
+      body: const BackgrounDecoration(
           child: Center(
         child: Text('Test'),
       )),
