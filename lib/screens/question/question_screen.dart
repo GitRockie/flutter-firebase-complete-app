@@ -3,6 +3,7 @@ import 'package:flutter_application_1/configs/themes/app_colors.dart';
 import 'package:flutter_application_1/configs/themes/custom_text_style.dart';
 import 'package:flutter_application_1/configs/themes/ui_parameters.dart';
 import 'package:flutter_application_1/firebase_ref/loading_status.dart';
+import 'package:flutter_application_1/screens/question/test_overview_screen.dart';
 
 import 'package:flutter_application_1/widgets/common/background_decoration.dart';
 import 'package:flutter_application_1/widgets/common/custom_app_bar.dart';
@@ -129,7 +130,8 @@ class QuestionScreen extends GetView<QuestionsController> {
                                 child: MainButton(
                                   onTap: () {
                                     controller.isLastQuestion
-                                        ? Container()
+                                        ? Get.toNamed(
+                                            TestOverviewScreen.routeName)
                                         : controller.nextQuestion();
                                   },
                                   title: controller.isLastQuestion
