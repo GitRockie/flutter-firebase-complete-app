@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_application_1/firebase_ref/references.dart';
 import 'package:flutter_application_1/models/question_paper_model.dart';
+import 'package:flutter_application_1/screens/question/result_screen.dart';
 import 'package:get/get.dart';
 
 import '../../firebase_ref/loading_status.dart';
@@ -135,6 +136,6 @@ class QuestionsController extends GetxController {
 
   void complete() {
     _timer!.cancel();
-    Get.offAndToNamed("/home");
+    Get.offAndToNamed(ResultScreen.routeName);
   }
 }
