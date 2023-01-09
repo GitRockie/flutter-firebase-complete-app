@@ -7,9 +7,9 @@ import 'package:flutter_application_1/widgets/common/background_decoration.dart'
 import 'package:flutter_application_1/widgets/common/custom_app_bar.dart';
 import 'package:get/get.dart';
 
-class TestOverviewScreen extends GetView<QuestionCard> {
+class TestOverviewScreen extends GetView<QuestionsController> {
   const TestOverviewScreen({super.key});
-  static const String routeName = '/testoverviev';
+  static const String routeName = "/testoverview";
 
   @override
   Widget build(BuildContext context) {
