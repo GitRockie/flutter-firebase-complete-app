@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/configs/themes/app_icons.dart';
 import 'package:flutter_application_1/configs/themes/custom_text_style.dart';
 import 'package:flutter_application_1/configs/themes/ui_parameters.dart';
-import 'package:flutter_application_1/controllers/question_paper/question_paper_controller.dart';
 
 import 'package:flutter_application_1/models/question_paper_model.dart';
 import 'package:flutter_application_1/widgets/app_icon_text.dart';
 import 'package:get/get.dart';
+
+import '../../controllers/question_paper_controller.dart';
 
 class QuestionCard extends GetView<QuestionPaperController> {
   const QuestionCard({super.key, required this.model});

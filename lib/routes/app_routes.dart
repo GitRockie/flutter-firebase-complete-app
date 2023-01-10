@@ -1,4 +1,3 @@
-import 'package:flutter_application_1/controllers/question_paper/question_paper_controller.dart';
 import 'package:flutter_application_1/controllers/zoom_drawer_controller.dart';
 import 'package:flutter_application_1/screens/home/home_screen.dart';
 import 'package:flutter_application_1/screens/introduction/introduction.dart';
@@ -9,6 +8,7 @@ import 'package:flutter_application_1/screens/question/test_overview_screen.dart
 import 'package:get/get.dart';
 
 import '../controllers/question_paper/questions_controller.dart';
+import '../controllers/question_paper_controller.dart';
 import '../screens/splash/splash_screen.dart';
 
 class AppRoutes {

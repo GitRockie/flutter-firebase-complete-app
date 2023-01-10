@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_application_1/controllers/question_paper/auth_controller.dart';
+import 'package:flutter_application_1/controllers/auth_controller.dart';
 import 'package:flutter_application_1/models/question_paper_model.dart';
 import 'package:flutter_application_1/services/app_logger.dart';
 import 'package:flutter_application_1/services/firebase_storage_service.dart';
