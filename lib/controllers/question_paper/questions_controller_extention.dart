@@ -11,4 +11,13 @@ extension QuestionControllerExtension on QuestionsController {
   String get correctAnsweredQuestions {
     return '$correctQuestionCount out of ${allQuestions.length} correct';
   }
+
+  String get points {
+    var points = (correctQuestionCount / allQuestions.length) *
+        100 *
+        (questionPaperModel.timeSeconds - remainSeconds) /
+        questionPaperModel.timeSeconds *
+        100;
+    return points.toStringAsFixed(2);
+  }
 }

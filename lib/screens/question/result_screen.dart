@@ -44,7 +44,7 @@ class ResultScreen extends GetView<QuestionsController> {
               ),
             ),
             Text(
-              'You have got 10 points.',
+              'You have got ${controller.points} points.',
               style: TextStyle(color: _textColor),
             ),
             const SizedBox(
