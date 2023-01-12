@@ -6,7 +6,7 @@ import 'package:flutter_application_1/widgets/dialogs/dialogue_widget.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../../services/app_logger.dart';
+import '../services/app_logger.dart';
 
 class AuthController extends GetxController {
   @override

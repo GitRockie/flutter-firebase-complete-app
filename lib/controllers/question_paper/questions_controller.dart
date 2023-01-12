@@ -1,9 +1,14 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_application_1/controllers/auth_controller.dart';
+import 'package:flutter_application_1/controllers/question_paper_controller.dart';
 import 'package:flutter_application_1/firebase_ref/references.dart';
 import 'package:flutter_application_1/models/question_paper_model.dart';
+import 'package:flutter_application_1/screens/home/home_screen.dart';
+import 'package:flutter_application_1/screens/question/result_screen.dart';
 import 'package:get/get.dart';
 
 import '../../firebase_ref/loading_status.dart';
@@ -25,7 +30,7 @@ class QuestionsController extends GetxController {
   @override
   void onReady() {
     final _questionPaper = Get.arguments as QuestionPaperModel;
-    print('...onReady...');
+
     loadData(_questionPaper);
 
     super.onReady();
@@ -83,7 +88,7 @@ class QuestionsController extends GetxController {
 
   void selectedAnswer(String? answer) {
     currentQuestion.value!.selectedAnswer = answer;
-    update(['answers_list']);
+    update(['answers_list', 'answer_review_list']);
   }
 
   //Creating Getter for test completed
@@ -93,6 +98,14 @@ class QuestionsController extends GetxController {
         .toList()
         .length;
     return '$answered out of ${allQuestions.length} answered.';
+  }
+
+  void jumpToQuestion(int index, {bool goBack = true}) {
+    questionIndex.value = index;
+    currentQuestion.value = allQuestions[index];
+    if (goBack) {
+      Get.back();
+    }
   }
 
   void nextQuestion() {
@@ -110,7 +123,7 @@ class QuestionsController extends GetxController {
   _startTimer(int seconds) {
     const duration = Duration(seconds: 1);
     remainSeconds = seconds;
-    Timer.periodic(duration, (Timer timer) {
+    _timer = Timer.periodic(duration, (Timer timer) {
       if (remainSeconds == 0) {
         timer.cancel();
       } else {
@@ -123,5 +136,20 @@ class QuestionsController extends GetxController {
         remainSeconds--;
       }
     });
+  }
+
+  void complete() {
+    _timer!.cancel();
+    Get.offAndToNamed(ResultScreen.routeName);
+  }
+
+  void tryAgain() {
+    Get.find<QuestionPaperController>()
+        .navigateToQuestions(paper: questionPaperModel, tryAgain: true);
+  }
+
+  void navigateToHomeScreen() {
+    _timer!.cancel();
+    Get.offNamedUntil(HomeScreen.routeName, (route) => false);
   }
 }

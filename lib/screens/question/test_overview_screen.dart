@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/configs/themes/app_colors.dart';
+
 import 'package:flutter_application_1/configs/themes/custom_text_style.dart';
 import 'package:flutter_application_1/configs/themes/ui_parameters.dart';
 
 import 'package:flutter_application_1/controllers/question_paper/questions_controller.dart';
-import 'package:flutter_application_1/screens/home/question_card.dart';
 
 import 'package:flutter_application_1/widgets/common/background_decoration.dart';
 import 'package:flutter_application_1/widgets/common/custom_app_bar.dart';
+import 'package:flutter_application_1/widgets/common/main_button.dart';
 import 'package:flutter_application_1/widgets/content_area.dart';
 import 'package:flutter_application_1/widgets/questions/answer_card.dart';
 import 'package:flutter_application_1/widgets/questions/count_down_timer.dart';
@@ -68,11 +68,21 @@ class TestOverviewScreen extends GetView<QuestionsController> {
                           return QuestionNumberCard(
                               index: index + 1,
                               status: _answerStatus,
-                              onTap: () {});
+                              onTap: () => controller.jumpToQuestion(index));
                         }),
                   ),
                 ],
-              )))
+              ))),
+              ColoredBox(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                child: Padding(
+                  padding: UIParameters.mobileScreenPadding,
+                  child: MainButton(
+                    onTap: () => controller.complete(),
+                    title: 'Result',
+                  ),
+                ),
+              )
             ],
           ),
         ));

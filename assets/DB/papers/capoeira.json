@@ -30,23 +30,23 @@
             "correct_answer":"B"
         },      {
             "id": "cap001q002",
-            "question": "Which geometric shape has the Roda de Capoeira formed by capoeiristas and capoeira musical instruments?",
+            "question": "Which of the capoeira toques (the rhythms) played on the berimbau is also called \"inverted Angola\"?",
             "answers": [
                 {
                     "identifier":"A",
-                    "Answer": "Square"
+                    "Answer": "Amazonas"
                 },
                 {
                     "identifier":"B",
-                    "Answer": "Triangle"
+                    "Answer": "São Bento Grande"
                 },
                 {
                     "identifier":"C",
-                    "Answer": "Rectangle"
+                    "Answer": "Samba de Roda"
                 },
                 {
                     "identifier":"D",
-                    "Answer": "Circle"
+                    "Answer": "São Bento Pequeno"
                 }
 
             ],
