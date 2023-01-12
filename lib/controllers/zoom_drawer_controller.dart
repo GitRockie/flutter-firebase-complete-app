@@ -46,7 +46,7 @@ class CustomZoomDrawerController extends GetxController {
 
   //launching e-mail client from here
   Future<void> _launch(String url) async {
-    if (!await launch(url)) {
+    if (!await launchUrl(Uri())) {
       throw 'Could not launch $url';
     }
   }

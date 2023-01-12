@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/foundation.dart';
-import 'package:flutter_application_1/controllers/auth_controller.dart';
+
 import 'package:flutter_application_1/controllers/question_paper_controller.dart';
 import 'package:flutter_application_1/firebase_ref/references.dart';
 import 'package:flutter_application_1/models/question_paper_model.dart';
@@ -75,7 +75,6 @@ class QuestionsController extends GetxController {
       allQuestions.assignAll(questionPaper.questions!);
       currentQuestion.value = questionPaper.questions![0];
       _startTimer(questionPaper.timeSeconds);
-      print('_startTimer');
 
       if (kDebugMode) {
         print(questionPaper.questions![0].question);
