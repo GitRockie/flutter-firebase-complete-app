@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/configs/themes/custom_text_style.dart';
 import 'package:flutter_application_1/controllers/question_paper/questions_controller_extention.dart';
+import 'package:flutter_application_1/screens/question/check_answer_screen.dart';
 import 'package:flutter_application_1/widgets/common/background_decoration.dart';
 import 'package:flutter_application_1/widgets/common/custom_app_bar.dart';
 import 'package:flutter_application_1/widgets/content_area.dart';
@@ -83,11 +84,12 @@ class ResultScreen extends GetView<QuestionsController> {
                         _status = AnswerStatus.incorrect;
                       }
                       return QuestionNumberCard(
-                        index: index + 1,
-                        onTap: () =>
-                            controller.jumpToQuestion(index, goBack: false),
-                        status: _status,
-                      );
+                          index: index + 1,
+                          status: _status,
+                          onTap: () {
+                            controller.jumpToQuestion(index, goBack: false);
+                            Get.toNamed(CheckAnswerScreen.routeName);
+                          });
                     }))
           ],
         )))
