@@ -61,6 +61,8 @@ class QuestionPaperController extends GetxController {
     if (_authController.isLoggedIn()) {
       if (tryAgain) {
         Get.back();
+        Get.toNamed(QuestionScreen.routeName,
+            arguments: paper, preventDuplicates: false);
         //Removing the Page of UI
         //Get.offNamed(page)
       } else {

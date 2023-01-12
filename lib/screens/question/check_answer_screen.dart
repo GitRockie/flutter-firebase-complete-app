@@ -35,10 +35,16 @@ class CheckAnswerScreen extends GetView<QuestionsController> {
                       Expanded(
                         child: ContentArea(
                             child: SingleChildScrollView(
-                          padding: const EdgeInsets.only(top: 20),
+                          padding: const EdgeInsets.only(top: 25),
                           child: Column(
                             children: [
-                              Text(controller.currentQuestion.value!.question),
+                              Text(
+                                controller.currentQuestion.value!.question,
+                                style: questionText,
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
                               GetBuilder<QuestionsController>(
                                   id: 'answer_review_list',
                                   builder: (_) {
