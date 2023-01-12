@@ -65,16 +65,25 @@ class CheckAnswerScreen extends GetView<QuestionsController> {
                                               answer.identifier ==
                                                   selectedAnswer) {
                                             //correct answer
+                                            return CorrectAnswer(
+                                                answer: answerText);
                                           } else if (selectedAnswer == null) {
                                             //not selected answer
+                                            return NoAnswered(
+                                                answer: answerText);
                                           } else if (correctAnswer !=
                                                   selectedAnswer &&
                                               answer.identifier ==
                                                   selectedAnswer) {
                                             //incorrect answer
+                                            return IncorrectAnswer(
+                                              answer: answerText,
+                                            );
                                           } else if (correctAnswer ==
                                               answer.identifier) {
                                             //correct answer
+                                            return CorrectAnswer(
+                                                answer: answerText);
                                           }
                                           return AnswerCard(
                                             answer: answerText,
